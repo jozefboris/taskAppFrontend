@@ -1,0 +1,102 @@
+<h1>Add task</h1>
+<form @formAnim  [formGroup]="taskForm" (ngSubmit)= "onSubmit()">
+    <div class="row">
+        <div class="col-xs-12">
+           
+            <div class="form-group">
+                <label for="title">Title*</label>
+                <input
+                type="text"
+                id="title"
+                formControlName="title"
+                class="form-control"
+                required
+                >
+                <div class="alert alert-danger" 
+                    *ngIf="taskForm.controls['title'].errors && taskForm.touched">
+                    <div *ngIf="taskForm.controls['title'].errors?.['required']">
+                        Name must be at least 4 characters long.</div>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea 
+                    name="description"
+                    id="description"  
+                    cols="10" rows="3" 
+                    formControlName="description"
+                    class="form-control">
+                </textarea>   
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="deadline">Deadline</label>
+                <input 
+                    type="datetime-local" 
+                    id="deadline" 
+                    name= "deadline"
+                    formControlName="deadline"
+                    class="form-control">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12" formArrayName="subtasks">
+            <div class="row">
+                <div class="col-xs-12">
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    (click) = "onAddSubtask()"
+                    >Add Subtask</button>
+                </div>
+              </div>    
+          <div 
+            *ngFor="let taskCtrl of controls(); let i = index"
+            [formGroupName]="i"
+            style="margin-top: 10px;">
+            <div class="col-xs-8">
+                <label for="title">Subtask</label>
+              <input
+                type="text"
+                id = "title"
+                class="form-control"
+                formControlName="title">
+                
+            </div>
+            <div class="col-xs-2">
+              <button
+                type="button"
+                class="btn btn-danger delbtn"
+                (click) = "onDeleteTask(i)"
+                >X</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="isLoading" style="text-align: center;">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+
+    <div [@addSuccess] (@addSuccess.start)="animationStarted($event)"
+      (@addSuccess.done)="animationEnded($event)" *ngIf="isSucess">
+      <h2>{{successMessage}}</h2>
+    </div>
+
+    <button  
+        [disabled] = "!taskForm.valid"  
+        type="submit"  
+        class="btn btn-large btn-primary">
+        Submit
+    </button>
+</form>

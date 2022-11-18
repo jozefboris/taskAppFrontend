@@ -1,0 +1,54 @@
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  input, textarea, .delbtn {
+    display:block;
+    width:100%;
+    margin:10px 0;
+    padding:10px;
+  }
+
+  .delbtn{
+    margin:20px 0;
+  }
+  .form-control {
+    border-radius:10px;
+    border: 1px solid #eee;
+    transition: .3s border-color;
+  }
+  .form-control:hover {
+    border: 1px solid #aaa;
+  }
+  label{
+    float: left;
+    display: block;
+  }
+
+  span{
+    float: left;
+    margin-bottom: 2px;
+  }
+
+  .btn{
+    float: left;
+    margin-bottom: 10px;
+
+    
+
+  }
+  .btn-large{
+    font-size: medium;
+    background-color: #03409c
+  }
+
+  .alert{
+    color: #dd0031 ;
+    font-size: small;
+
+  
+  }
+

@@ -1,0 +1,41 @@
+nav {
+	margin: 2em auto 2.5em;
+	padding: 0 1.25em;
+	display: inline-block;
+
+	vertical-align: middle;
+	background: transparent;
+	white-space: nowrap;
+
+	border: 3px solid #202020;
+	border-radius: 2.5em;
+
+	a {
+		color: #fff;
+		font-size: 1.1em;
+		font-weight: 800;
+		text-decoration: none;
+
+		cursor: pointer;
+		padding: 0.575em 5.65em;
+		display: inline-block;
+
+		&.active {
+			color: #dd0031;
+		}
+	}
+}
+
+.out{
+	margin-top: 2.5em ;
+	float: right;
+	text-decoration: none;
+	color: #000;
+	font-size: 1.1em;
+	font-weight: 800;
+}
+
+
+.out:hover{
+	text-decoration: underline;
+}

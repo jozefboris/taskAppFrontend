@@ -1,0 +1,32 @@
+<ng-template appPlaceholder></ng-template>
+
+<div *ngIf="isLoading" style="text-align: center;">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<ul>
+  <li [@list]  class="common-task" *ngFor="let item of tasks | sort:'deadline'">
+    <div class="inside"> 
+      <a class="ctrl" (click) = "showErrorAlert('Do you want delete item?', item.id)" >✖️</a> 
+      <a class="ctrl" (click) = "onUpdate(item.id)">✏️</a>    
+      <article>
+        <h2>
+          {{item.title}}
+        </h2>
+        <div class="player">
+          {{item.description}}
+        </div>
+      </article>
+
+      <footer class="meta">
+          {{item.deadline | date:'medium'}}
+      </footer>
+      <div>
+        <p *ngIf="item.subtasksList.length !== 0">Subtasks:</p>
+        <article class="list" *ngFor="let sub of item.subtasksList">
+            {{sub.title}}
+        </article>
+      </div>
+    </div>
+  </li>
+</ul>

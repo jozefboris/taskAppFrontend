@@ -1,0 +1,49 @@
+<div class="wrapper">
+    <div *ngIf="isLoading" style="text-align: center;">
+        <app-loading-spinner></app-loading-spinner>
+    </div>
+    <form  class="form-signin" #loginForm= "ngForm" (ngSubmit)= "loginUser(loginForm)">
+        <h2 
+            class="form-signin-heading" 
+            style="color:#A8A6A6">
+            Sign in
+        </h2>
+            
+        <div class="form-group">
+            <input 
+                type="text" 
+                class="form-control"  
+                #login="ngModel"  
+                name="login" 
+                id="login" 
+                placeholder="Login" 
+                ngModel 
+                required 
+                minlength="4"/>
+            <div class="alert alert-danger" *ngIf=" login.touched && login.invalid ">
+                <div *ngIf="login.errors?.['minlength']">Name must be at least 4 characters long.</div>
+                <div *ngIf="login.errors?.['required']">Login is required.</div> 
+            </div>
+          
+        </div>
+
+          <div class="form-group">
+        <input 
+            type="password"
+            class="form-control" 
+            name="pass" 
+            id="pass" 
+            #pass="ngModel" 
+            ngModel 
+            placeholder="Password" 
+            required   />
+        <div class="alert alert-danger" *ngIf=" pass.touched && pass.invalid">
+            <div *ngIf="pass.errors?.['required']">Password is required.</div>
+        </div>
+
+    </div>
+        <button [disabled] = "!loginForm.valid"  class="btn btn-lg btn-primary btn-block"  type="submit">Log in</button>
+        <button class="btn btn-lg btn-primary btn-block" routerLink="/registration">Sign up</button>
+    </form>
+</div>
+

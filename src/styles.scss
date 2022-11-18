@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+// just to prove it's real
+@import './assets/scss/variables';
+
+// fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,800');
+
+html {
+	min-height: 100vh;
+	box-sizing: content-box;
+}
+
+body {
+	color: $color;
+	font-size: 16px;
+	padding: 0 1.75em;
+	background: linear-gradient(145deg, #0B3A86, #2C6ED8
+	);
+}
+
+#app {
+	font: {
+		size: 1em;
+		family: 'Nunito Sans', helvetica, arial, sans-serif;
+		weight: 600;
+	}
+
+	text-align: center;
+	margin: 0em auto;
+	max-width: 48em;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	color: #c3002f;
+	outline: none;
+	font-weight: bold;
+}
+
+h1 {
+	font: {
+		size: 2.25em;
+		weight: 800;
+		style: normal;
+	}
+
+	text-align: center;
+	letter-spacing: -1px;
+}
+
+h1:first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 3px solid #101010;
+	margin-bottom: 1em;
+}
+
+.content {
+	font-size: 1.15em;
+	line-height: 1.5em;
+
+	.tunes,
+	.about {
+		padding: {
+			top: 1.5em;
+			bottom: 1.5em;
+		}
+	}
+}
+
+article {
+	text-align: left;
+}
+
+@media screen and (max-width: 520px) {
+	#app {
+		
+		font-size: 0.85em;
+	}
+}
+

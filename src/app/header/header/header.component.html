@@ -1,0 +1,10 @@
+<nav>
+    <a 
+        routerLinkActive="active" 
+        routerLink="/task" 
+        [routerLinkActiveOptions]="{ exact: true }">
+        Home</a>
+    <a routerLinkActive="active" routerLink="/list">List</a>   
+</nav>
+
+<a *ngIf="isAuthenticated" class="out" (click)="logOut()" routerLink="login">Sign out</a>
